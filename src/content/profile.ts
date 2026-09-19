@@ -75,18 +75,6 @@ export const experience: Experience[] = [
     ],
     stack: ["Java", "Spring Boot", "Hibernate", "Microservices", "MySQL", "AWS"],
   },
-  {
-    company: "Tray",
-    role: "Backend Developer Intern",
-    period: "2021 — 2022",
-    location: "India",
-    bullets: [
-      "Built and integrated Swagger/OpenAPI documentation for the platform's APIs, so other teams could use them without back-and-forth.",
-      "Wrote technical documentation for the APIs and kept it accurate as they changed.",
-      "Worked with Java, Spring and Hibernate on production code, and contributed to project planning in team meetings.",
-    ],
-    stack: ["Java", "Spring", "Hibernate", "Swagger / OpenAPI"],
-  },
 ];
 
 export type Project = {
