@@ -4,6 +4,8 @@ import { Work } from "@/components/Work";
 import { Projects } from "@/components/Projects";
 import { Stack } from "@/components/Stack";
 import { Education } from "@/components/Education";
+import { Community } from "@/components/Community";
+import { More } from "@/components/More";
 import { Contact } from "@/components/Contact";
 
 export default function Home() {
@@ -21,7 +23,9 @@ export default function Home() {
         <Work />
         <Projects />
         <Stack />
+        <Community />
         <Education />
+        <More />
         <Contact />
       </main>
     </>

@@ -4,10 +4,7 @@
  * Anything wrapped in TODO() is a placeholder that still needs filling in.
  * It renders visibly on the page so nothing ships half-written by accident.
  *
- * Everything NOT wrapped in TODO() was sourced from the previous site
- * (about/exp/education/project.html) or a public profile, and is factual.
- * The TODOs that remain are all things no public source could tell me:
- * numbers, scale, and outcomes. Those have to come from you.
+ * Kept in step with the GitHub profile README (github.com/ashish11chawda).
  */
 export const TODO = (hint: string) => `TODO: ${hint}`;
 
@@ -15,26 +12,24 @@ export const profile = {
   name: "Ashish Chawda",
   role: "Software Engineer",
   company: "Tray",
-  location: "India",
-  email: "ashish.chawda@tray.com",
+  location: "Hyderabad, India",
+  email: "ashish11chawda@gmail.com",
 
   tagline:
-    "Backend engineer working in Java and Spring. I've spent the last four years on an enterprise product — most recently taking it from a monolith to services that can be scaled independently.",
+    "Backend engineer working in Java and Spring. I design and ship core backend services for an enterprise product at Tray, and led its move from a monolith to services that scale independently.",
 
   summary: [
-    "Software Engineer at Tray, where I build enterprise product features across the backend and work with cross-functional teams to get them shipped.",
-    `I led the migration from a monolithic architecture to microservices — ${TODO(
-      "the part that matters: which services you carved out first, how you decided the boundaries, and how you migrated without downtime",
-    )}`,
-    "Outside of feature work I review code, mentor the engineers who joined after me, and help shape the technical roadmap. Computer Science graduate from Shri Shankaracharya Technical Campus, Bhilai.",
+    "At Tray I own backend features end to end, working with product and cross-functional teams from design through release.",
+    "I led the migration from a monolithic architecture to microservices, so components can now be deployed and scaled independently.",
+    "I review code, mentor engineers, and help shape our technical roadmap. Outside work I build full-stack side projects in TypeScript, Next.js, NestJS and FastAPI.",
   ],
 
   /** Hard numbers. These are what recruiters scan first. */
   highlights: [
     { value: "4+", label: "Years shipping production software" },
-    { value: TODO("e.g. 12"), label: TODO("e.g. Services owned or migrated") },
-    { value: TODO("e.g. 2M+"), label: TODO("e.g. Requests served daily") },
-    { value: TODO("e.g. 6"), label: TODO("e.g. Engineers on the team") },
+    { value: "6", label: "Hackathons & developer events organized" },
+    { value: "90+", label: "Public repos on GitHub" },
+    { value: "6K+", label: "Followers on LinkedIn" },
   ],
 } as const;
 
@@ -45,9 +40,15 @@ export const socials = [
     href: "https://www.linkedin.com/in/ashish11chawda",
     handle: "in/ashish11chawda",
   },
+  { label: "Blog", href: "https://ashishchawda.hashnode.dev", handle: "ashishchawda.hashnode.dev" },
   { label: "X", href: "https://x.com/ashish11chawda", handle: "@ashish11chawda" },
   { label: "YouTube", href: "https://www.youtube.com/@ashish11chawda", handle: "@ashish11chawda" },
-  { label: "Email", href: "mailto:ashish.chawda@tray.com", handle: "ashish.chawda@tray.com" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/ashish11chawda",
+    handle: "@ashish11chawda",
+  },
+  { label: "Email", href: "mailto:ashish11chawda@gmail.com", handle: "ashish11chawda@gmail.com" },
 ] as const;
 
 export type Experience = {
@@ -66,21 +67,13 @@ export const experience: Experience[] = [
     period: "2022 — Present",
     location: "India",
     bullets: [
-      `Led the migration of an enterprise product from a monolith to microservices, improving scalability and letting components be deployed and scaled independently. ${TODO(
-        "Add the outcome — deploy frequency, p99 latency, or incident rate before vs after",
-      )}`,
-      `Designed and implemented enterprise product features end to end, working with cross-functional teams from requirements through release. ${TODO(
-        "Name the single feature you're proudest of and what it does for customers",
-      )}`,
-      "Contributed to the technical roadmap, identifying areas for improvement and proposing the strategy for addressing them.",
-      `Review code and mentor junior engineers on the team. ${TODO(
-        "How many people, and one concrete thing that got better because of it",
-      )}`,
-      `Conduct testing and debugging to catch issues before release. ${TODO(
-        "If you introduced a testing practice or raised coverage, say which and by how much",
-      )}`,
+      "Led the migration of an enterprise product from a monolith to microservices, so components can be deployed and scaled independently.",
+      "Design and ship core backend services end to end, working with product and cross-functional teams from requirements through release.",
+      "Contribute to the technical roadmap by identifying areas to improve and proposing how to address them.",
+      "Review code and mentor engineers on the team.",
+      "Own testing and debugging for my services so issues are caught before release.",
     ],
-    stack: ["Java", "Spring", "Hibernate", "Microservices", "MySQL", "AWS"],
+    stack: ["Java", "Spring Boot", "Hibernate", "Microservices", "MySQL", "AWS"],
   },
   {
     company: "Tray",
@@ -88,8 +81,8 @@ export const experience: Experience[] = [
     period: "2021 — 2022",
     location: "India",
     bullets: [
-      "Built and integrated Swagger/OpenAPI documentation for the platform's APIs, making them usable across teams without back-and-forth.",
-      "Wrote technical documentation for APIs and kept it accurate as the surface changed.",
+      "Built and integrated Swagger/OpenAPI documentation for the platform's APIs, so other teams could use them without back-and-forth.",
+      "Wrote technical documentation for the APIs and kept it accurate as they changed.",
       "Worked with Java, Spring and Hibernate on production code, and contributed to project planning in team meetings.",
     ],
     stack: ["Java", "Spring", "Hibernate", "Swagger / OpenAPI"],
@@ -107,57 +100,76 @@ export type Project = {
   featured?: boolean;
 };
 
-/**
- * Three projects that show judgement beat ninety repos that show enthusiasm.
- * The tutorial clones are deliberately off the site.
- */
 export const projects: Project[] = [
   {
-    name: TODO("Your strongest piece of Tray work you're allowed to describe publicly"),
-    blurb: TODO("One line: what it does and who depends on it."),
-    detail: TODO(
-      "The tradeoff you made and why — this is the field that gets you asked about it in an interview. e.g. 'Split the service on write-contention boundaries rather than by domain noun, because the hot path was a single table.'",
-    ),
-    stack: ["Java", "Spring Boot"],
+    name: "Retail Platform",
+    blurb:
+      "A multi-tenant commerce API with a customer storefront and a staff admin dashboard, built as a modular monolith designed for later service extraction.",
+    detail:
+      "Three guarantees, each proven by tests. Postgres row-level security enforces tenant isolation, so a query that forgets its tenant filter returns zero rows. Inventory can't oversell: 50 concurrent reservations against 10 units produce exactly 10 successes, with no locks held across requests. Checkout is idempotent end to end, so replaying an Idempotency-Key after a timeout still produces one order and one charge.",
+    stack: ["NestJS", "Next.js", "PostgreSQL", "Redis", "Stripe", "Testcontainers"],
     featured: true,
   },
   {
-    name: "LitForm API",
-    blurb: "A form management API with admin and user roles — create, edit and publish forms, then collect submissions.",
-    detail: `Role-based access split the API cleanly: admins get full CRUD over forms, users get read-and-submit only. ${TODO(
-      "How did you enforce the role boundary — filter, annotations, method-level security? That's the interesting part",
-    )}`,
-    stack: ["Java", "Spring Boot", "REST"],
-  },
-  {
-    name: "GCRF Progress Tracker",
+    name: "Kundli",
     blurb:
-      "Let students in the Google Cloud Ready Facilitator programme at SSTC Bhilai track their daily progress against their Qwiklabs profile.",
-    detail: `Built for a real cohort rather than as an exercise — it had to reconcile a student's registered email against their external Qwiklabs profile. ${TODO(
-      "Roughly how many students used it, and what broke at that size",
-    )}`,
-    stack: ["JavaScript", "HTML"],
-    repo: "https://github.com/ashish11chawda/gcrf21-badge",
+      "Vedic astrology charts explained in plain language, computed from NASA JPL planetary data.",
+    detail:
+      "Chart calculation lives in a separate Python engine behind the Next.js app, and a pnpm monorepo shares types between the two.",
+    stack: ["Next.js", "FastAPI", "Skyfield", "TypeScript"],
+    repo: "https://github.com/ashish11chawda/kundli",
   },
   {
-    name: "Multiplayer Tic Tac Toe",
-    blurb: "Realtime two-player game with live chat and authentication.",
-    detail: TODO(
-      "How you handled state sync and reconnects over websockets — who owns the authoritative board state, and what happens when a player drops mid-game",
-    ),
-    stack: ["JavaScript", "WebSockets", "Node.js"],
-    repo: "https://github.com/ashish11chawda/tic-tac-toe",
+    name: "Litform",
+    blurb:
+      "A gamified survey platform that asks one question at a time and rewards completion with points, streaks and badges.",
+    detail:
+      "A ground-up rebuild of my 2022 college major project on a current stack. The original implementation is preserved on a legacy branch.",
+    stack: ["Next.js", "Prisma", "PostgreSQL", "Better Auth"],
+    repo: "https://github.com/Team-Technophile/litform",
+  },
+  {
+    name: "Harshie's Bakehouse",
+    blurb: "A full-stack bakery site with a public menu, an admin panel and a staff dashboard.",
+    detail:
+      "Admin and staff roles have separate permission gates, and a mock mode runs the whole app on sample data with no database attached.",
+    stack: ["Next.js", "Supabase", "TanStack Query", "shadcn/ui"],
   },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: "Languages", items: ["Java", "JavaScript", "TypeScript", "SQL"] },
-  { group: "Backend", items: ["Spring", "Spring Boot", "Hibernate", "REST", "Swagger / OpenAPI"] },
-  { group: "Architecture", items: ["Microservices", "Monolith decomposition", "API design"] },
-  { group: "Frontend", items: ["React", "Tailwind CSS", "Next.js"] },
-  { group: "Data", items: ["MySQL", "MongoDB"] },
-  { group: "Infra", items: ["AWS", "Git", "GitHub Actions"] },
-  { group: "Practice", items: ["Code review", "Mentoring", "Technical documentation"] },
+  { group: "Day job", items: ["Java", "Spring Boot", "Hibernate", "MySQL", "AWS", "OpenAPI"] },
+  { group: "Languages", items: ["TypeScript", "JavaScript", "Python", "SQL"] },
+  { group: "Frontend", items: ["Next.js", "React", "Tailwind CSS", "shadcn/ui", "TanStack Query"] },
+  {
+    group: "Backend & data",
+    items: [
+      "NestJS",
+      "FastAPI",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "Redis",
+      "Supabase",
+      "MongoDB",
+      "Stripe",
+    ],
+  },
+  {
+    group: "Tooling",
+    items: [
+      "Vitest",
+      "Playwright",
+      "Docker",
+      "pnpm",
+      "Turborepo",
+      "GitHub Actions",
+      "Google Cloud",
+      "Vercel",
+      "Firebase",
+      "Claude Code",
+    ],
+  },
 ];
 
 export type Education = {
@@ -172,26 +184,69 @@ export const education: Education[] = [
     school: "Shri Shankaracharya Technical Campus, Bhilai",
     qualification: "B.Tech, Computer Science & Engineering",
     period: "2018 — 2022",
-    notes: [
-      "Hack Club SSGI — Lead",
-      "GFG Student Chapter SSGI — Lead (2020–2021)",
-      "Microsoft Learn Student Ambassador",
-    ],
+    notes: [],
   },
 ];
 
-export type Talk = { title: string; venue: string; year: string; href?: string };
+export type CommunityRole = { role: string; org: string; period: string; href?: string };
 
-export const talks: Talk[] = [
+export const community: CommunityRole[] = [
   {
-    title: "Building a Twitter clone with Tailwind CSS — workshop",
-    venue: "DevFest Raipur",
+    role: "GitHub Campus Expert",
+    org: "GitHub",
+    period: "2021 — 2024",
+    href: "https://githubcampus.expert/ashish11chawda",
+  },
+  {
+    role: "Microsoft Learn Student Ambassador",
+    org: "Microsoft",
+    period: "2021 — 2022",
+    href: "https://studentambassadors.microsoft.com/en-US/profile/45941",
+  },
+  { role: "Google Cloud Ready Facilitator", org: "Google", period: "2021" },
+  {
+    role: "Co-organizer",
+    org: "Bhilai Hacks, a 24-hour online hackathon",
+    period: "2021",
+    href: "https://bhilaihacks.co",
+  },
+  { role: "Organizer", org: "Holiday Hacks SSTC", period: "2022" },
+];
+
+export const eventsOrganized = [
+  "GitHub Field Day India 2021",
+  "GitHub Field Day Delhi 2022",
+  "Bhilai Hacks",
+  "Holiday Hacks",
+  "API Hacks 2.0",
+  "Bugtrons 2.0",
+];
+
+export type Writing = { title: string; venue: string; year: string; href?: string };
+
+export const writing: Writing[] = [
+  {
+    title: "GitHub Campus Expert Application for February 2022 is open!",
+    venue: "Hashnode",
     year: "2022",
-    href: "https://github.com/ashish11chawda/twitter-clone-tailwind",
+    href: "https://ashishchawda.hashnode.dev/github-campus-expert-application-february-2022",
   },
-  {
-    title: TODO("Anything since 2022 — a talk, a blog post, an internal tech doc you can link"),
-    venue: TODO("where"),
-    year: TODO("when"),
-  },
+];
+
+export const certifications: { name: string; issuer: string }[] = [
+  { name: "Cloud Engineering", issuer: "Qwiklabs" },
+  { name: "Intermediate ML: TensorFlow on GCP", issuer: "Qwiklabs" },
+  { name: "BigQuery Basics for Data Analysts", issuer: "Qwiklabs" },
+  { name: "Baseline: Data, ML, AI", issuer: "Qwiklabs" },
+  { name: "VCS: Git & GitHub", issuer: "Udemy" },
+  { name: "Programming in C", issuer: "NPTEL" },
+  { name: "Programming in C++", issuer: "NPTEL" },
+];
+
+export const funFacts: string[] = [
+  "I can talk about astronomy all day, so I built an app that computes planetary positions from NASA JPL ephemerides.",
+  "I was rejected from GitHub Campus Experts the first time, got in on the second try, and wrote a guide for the next applicants.",
+  "Off-screen, it's geopolitics, space documentaries and folk music.",
+  "I speak English, Hindi and a little Gujarati.",
+  '90+ public repos, from a COVID-19 tracker to a Google Docs clone. Most started as "how does this actually work?"',
 ];

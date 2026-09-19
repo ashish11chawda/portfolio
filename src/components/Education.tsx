@@ -11,16 +11,18 @@ export function Education() {
             <p className="font-mono text-xs text-faint">{e.period}</p>
           </div>
           <p className="mt-1 text-muted">{e.qualification}</p>
-          <ul className="mt-4 flex flex-wrap gap-1.5">
-            {e.notes.map((n) => (
-              <li
-                key={n}
-                className="rounded border border-edge bg-raised px-2.5 py-1 text-sm text-muted"
-              >
-                {n}
-              </li>
-            ))}
-          </ul>
+          {e.notes.length > 0 && (
+            <ul className="mt-4 flex flex-wrap gap-1.5">
+              {e.notes.map((n) => (
+                <li
+                  key={n}
+                  className="rounded border border-edge bg-raised px-2.5 py-1 text-sm text-muted"
+                >
+                  {n}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       ))}
     </Section>

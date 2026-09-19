@@ -46,7 +46,7 @@ const jsonLd = {
   worksFor: { "@type": "Organization", name: profile.company },
   alumniOf: education.map((e) => ({ "@type": "CollegeOrUniversity", name: e.school })),
   knowsAbout: ["Java", "Spring Boot", "Microservices", "API design", "Backend engineering"],
-  address: { "@type": "PostalAddress", addressCountry: profile.location },
+  address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressCountry: "IN" },
   sameAs: socials.filter((s) => !s.href.startsWith("mailto:")).map((s) => s.href),
 };
 

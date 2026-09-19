@@ -3,13 +3,19 @@ import { Section } from "./Section";
 import { Text } from "./Placeholder";
 
 export function Projects() {
+  const unfeatured = projects.filter((p) => !p.featured).length;
+
   return (
-    <Section id="projects" title="Selected projects" aside="three that show judgement">
+    <Section id="projects" title="Selected projects" aside="what I'm building">
       <div className="grid gap-px overflow-hidden rounded-lg border border-edge bg-edge sm:grid-cols-2">
         {projects.map((p, i) => (
           <article
             key={i}
-            className={`flex flex-col bg-raised p-5 ${p.featured ? "sm:col-span-2" : ""}`}
+            className={`flex flex-col bg-raised p-5 ${
+              p.featured || (i === projects.length - 1 && unfeatured % 2 === 1)
+                ? "sm:col-span-2"
+                : ""
+            }`}
           >
             <div className="flex items-baseline justify-between gap-3">
               <h3 className="font-medium">
